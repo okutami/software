@@ -17,4 +17,16 @@ public class Main{
         }
         return args;
     }
+
+     private boolean isTarget(File file){
+        boolean flag = true;
+        if(args.getName() != null){
+            flag &= checkTargetName(file, args.getName());
+        }
+        return flag;
+    }
+    private boolean checkTargetName(File file, String pattern){
+        String name = file.getName();
+        return name.indexOf(pattern) >= 0;
+    }
 }
